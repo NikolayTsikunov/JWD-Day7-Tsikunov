@@ -6,27 +6,25 @@ import java.util.ResourceBundle;
 
 public class LocaleDemo {
     public static void main(String[] args) {
-        System.out.println("1 - английский \n 2 - белорусский \n любой - русский");
+        System.out.println("1 - английский\n2 - белорусский\nлюбой - русский");
         char i = 0;
         try {
             i = (char) System.in.read();
         } catch(IOException e) {
-            System.out.println("");
+            System.out.println("Ошибка при чтении файла.");
         }
 
         String country = "";
         String language = "";
         switch (i) {
-            case '1': {
+            case '1':
                 country = "US";
                 language = "EN";
                 break;
-            }
-            case '2': {
+            case '2':
                 country = "BY";
                 language = "BE";
                 break;
-            }
         }
         Locale current = new Locale(language, country);
         ResourceBundle bundle = ResourceBundle.getBundle("property.text", current);
